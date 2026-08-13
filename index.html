@@ -3,454 +3,337 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Database Engineering & DBA Services</title>
+<title>Query IT Services | Zahid Hussain — Senior Database Administrator</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#0F1B2D;
-    --ink-2:#152538;
-    --paper:#F7F5EF;
-    --paper-2:#FFFFFF;
-    --line: rgba(247,245,239,0.14);
-    --line-dark: rgba(15,27,45,0.12);
-    --teal:#2F9E8E;
-    --teal-light:#DCEEEA;
-    --amber:#D98B2B;
-    --amber-light:#F7E4C6;
-    --text-soft: rgba(247,245,239,0.72);
-    --text-soft-dark: rgba(15,27,45,0.62);
-    --radius: 10px;
+    --bg:#0F172A;
+    --bg-alt:#0B1220;
+    --card:rgba(30,41,59,0.4);
+    --card-solid:#1E293B;
+    --border:#1E293B;
+    --border-hover:rgba(56,189,248,0.5);
+    --text:#F1F5F9;
+    --text-muted:#94A3B8;
+    --text-dim:#64748B;
+    --sky:#38BDF8;
+    --sky-dark:#0EA5E9;
+    --sky-bg:rgba(56,189,248,0.1);
+    --sky-border:rgba(56,189,248,0.2);
+    --emerald:#34D399;
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
-  body{
-    margin:0;
-    background:var(--paper);
-    color:var(--ink);
-    font-family:'IBM Plex Sans', sans-serif;
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-  }
-  .mono{font-family:'IBM Plex Mono', monospace;}
-  a{color:inherit;}
-  .wrap{max-width:1080px; margin:0 auto; padding:0 32px;}
-  @media (max-width:640px){ .wrap{padding:0 20px;} }
+  body{margin:0;background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
+  @media (max-width:600px){.wrap{padding:0 20px;}}
+  .mono{font-family:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;}
 
-  /* NAV */
-  header{
-    position:sticky; top:0; z-index:50;
-    background:rgba(247,245,239,0.92);
-    backdrop-filter:blur(6px);
-    border-bottom:1px solid var(--line-dark);
-  }
-  nav{
-    display:flex; align-items:center; justify-content:space-between;
-    padding:18px 0;
-  }
-  .brand{
-    display:flex; align-items:center; gap:10px;
-    font-family:'Fraunces', serif; font-weight:600; font-size:19px;
-    letter-spacing:-0.01em;
-  }
-  .brand-mark{
-    width:26px; height:26px; border-radius:5px;
-    background:var(--ink);
-    position:relative;
-    flex-shrink:0;
-  }
-  .brand-mark::before, .brand-mark::after{
-    content:""; position:absolute; left:5px; right:5px; height:1.5px;
-    background:var(--amber);
-  }
-  .brand-mark::before{ top:8px; }
-  .brand-mark::after{ top:14px; }
-  .navlinks{ display:flex; gap:32px; font-size:14.5px; }
-  .navlinks a{ text-decoration:none; color:var(--ink); opacity:0.75; transition:opacity .15s; }
-  .navlinks a:hover{ opacity:1; }
-  @media (max-width:640px){ .navlinks{ gap:18px; font-size:13.5px; } }
+  /* Header */
+  header{position:sticky;top:0;z-index:50;background:rgba(15,23,42,0.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);}
+  header .wrap{display:flex;justify-content:space-between;align-items:center;padding:16px 24px;}
+  .brand{font-size:20px;font-weight:700;color:#fff;letter-spacing:0.01em;}
+  .brand .accent{color:var(--sky);}
+  nav{display:flex;gap:32px;align-items:center;}
+  nav a{font-size:14px;font-weight:500;color:var(--text-muted);transition:color .15s;}
+  nav a:hover{color:var(--sky);}
+  @media (max-width:760px){nav a:not(.nav-cta){display:none;}}
+  .nav-cta{background:var(--sky);color:#0f172a !important;font-weight:600;padding:9px 16px;border-radius:8px;font-size:13.5px;}
+  .nav-cta:hover{background:var(--sky-dark);}
 
-  /* HERO */
-  .hero{
-    background:var(--ink);
-    color:var(--paper);
-    background-image:
-      linear-gradient(var(--line) 1px, transparent 1px),
-      linear-gradient(90deg, var(--line) 1px, transparent 1px);
-    background-size:44px 44px;
-    padding:96px 0 88px;
-  }
-  .eyebrow{
-    font-size:13px; color:var(--teal); letter-spacing:0.02em; margin-bottom:20px;
-    display:flex; align-items:center; gap:8px;
-  }
-  .eyebrow .dot{
-    width:6px; height:6px; border-radius:50%; background:var(--teal);
-    box-shadow:0 0 0 3px rgba(47,158,142,0.25);
-  }
-  .hero h1{
-    font-family:'Fraunces', serif; font-weight:500; font-size:52px; line-height:1.08;
-    margin:0 0 22px; max-width:620px; letter-spacing:-0.01em;
-  }
-  .hero h1 em{ font-style:italic; color:var(--teal); }
-  @media (max-width:640px){ .hero h1{ font-size:36px; } }
-  .hero p.lede{
-    font-size:17px; color:var(--text-soft); max-width:480px; margin:0 0 36px;
-  }
-  .hero-grid{
-    display:grid; grid-template-columns:1.05fr 0.95fr; gap:56px; align-items:center;
-  }
-  @media (max-width:860px){ .hero-grid{ grid-template-columns:1fr; gap:40px; } }
+  /* Hero */
+  .hero{max-width:1120px;margin:0 auto;padding:80px 24px;display:flex;align-items:center;justify-content:space-between;gap:48px;flex-wrap:wrap;}
+  .hero-left{flex:1 1 560px;}
+  .hero-right{flex:1 1 380px;display:flex;justify-content:center;}
+  .kicker{display:inline-block;background:var(--sky-bg);color:var(--sky);border:1px solid var(--sky-border);padding:6px 14px;border-radius:99px;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:22px;}
+  h1{font-size:44px;font-weight:800;color:#fff;line-height:1.18;margin:0 0 22px;letter-spacing:-0.01em;}
+  @media (max-width:600px){h1{font-size:30px;}}
+  h1 .accent{color:var(--sky);}
+  .lede{color:var(--text-muted);font-size:18px;margin:0 0 28px;max-width:520px;}
+  .lede strong{color:var(--text);}
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:28px;}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:8px;font-size:14.5px;font-weight:700;cursor:pointer;border:1.5px solid transparent;transition:background .15s,border-color .15s;font-family:inherit;}
+  .btn-primary{background:var(--sky);color:#0f172a;}
+  .btn-primary:hover{background:var(--sky-dark);}
+  .btn-ghost{border-color:var(--border);color:var(--text-muted);background:transparent;}
+  .btn-ghost:hover{border-color:var(--text-dim);color:var(--text);}
+  .creds{display:flex;gap:12px;flex-wrap:wrap;}
+  .cred{display:inline-flex;align-items:center;gap:8px;background:var(--card-solid);border:1px solid var(--border);color:var(--text);font-size:13px;font-weight:500;padding:9px 14px;border-radius:8px;}
+  .cred .ck{color:var(--sky);}
 
-  .cta-row{ display:flex; gap:14px; flex-wrap:wrap; }
-  .btn{
-    display:inline-flex; align-items:center; gap:8px;
-    padding:13px 22px; border-radius:7px; font-size:14.5px; font-weight:500;
-    text-decoration:none; cursor:pointer; border:1px solid transparent;
-    transition:transform .12s ease, opacity .12s ease;
-  }
-  .btn:active{ transform:scale(0.98); }
-  .btn-primary{ background:var(--amber); color:#3A2404; }
-  .btn-primary:hover{ opacity:0.92; }
-  .btn-ghost{ border-color:rgba(247,245,239,0.3); color:var(--paper); }
-  .btn-ghost:hover{ border-color:rgba(247,245,239,0.55); }
+  .dash-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px;width:100%;max-width:380px;box-shadow:0 20px 50px -20px rgba(0,0,0,0.5);}
+  .dash-head{display:flex;justify-content:space-between;align-items:center;padding-bottom:16px;border-bottom:1px solid var(--border);margin-bottom:16px;}
+  .dash-head .lbl{font-size:12px;color:var(--text-muted);}
+  .dash-head .status{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--emerald);font-weight:600;}
+  .dot-pulse{width:8px;height:8px;border-radius:50%;background:var(--emerald);animation:pulse 1.6s ease-in-out infinite;}
+  @keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.35;}}
+  .dash-row{display:flex;justify-content:space-between;background:var(--bg-alt);padding:10px 12px;border-radius:6px;font-size:12.5px;margin-bottom:10px;}
+  .dash-row:last-child{margin-bottom:0;}
+  .dash-row .v-em{color:var(--emerald);}
+  .dash-row .v-sky{color:var(--sky);}
 
-  /* terminal */
-  .terminal{
-    background:var(--ink-2);
-    border:1px solid rgba(247,245,239,0.12);
-    border-radius:10px;
-    overflow:hidden;
-    box-shadow:0 24px 60px -20px rgba(0,0,0,0.5);
-  }
-  .terminal-bar{
-    display:flex; gap:6px; align-items:center;
-    padding:11px 14px; border-bottom:1px solid rgba(247,245,239,0.1);
-  }
-  .terminal-bar span{ width:9px; height:9px; border-radius:50%; background:rgba(247,245,239,0.2); }
-  .terminal-body{ padding:20px 18px; font-size:13.5px; min-height:190px; }
-  .terminal-body .l{ color:rgba(247,245,239,0.5); }
-  .terminal-body .kw{ color:#7FB8E0; }
-  .terminal-body .str{ color:#E3B04B; }
-  .terminal-body .ok{ color:var(--teal); }
-  #typed-line::after{
-    content:"▌"; animation:blink 1s step-start infinite; color:var(--teal);
-  }
-  @keyframes blink{ 50%{opacity:0;} }
-  .terminal-result{ margin-top:14px; opacity:0; transition:opacity .4s ease; }
-  .terminal-result.show{ opacity:1; }
-  .terminal-result table{ width:100%; border-collapse:collapse; font-size:12.5px; }
-  .terminal-result td, .terminal-result th{
-    padding:5px 8px; text-align:left; border-bottom:1px solid rgba(247,245,239,0.08);
-    color:rgba(247,245,239,0.85);
-  }
-  .terminal-result th{ color:rgba(247,245,239,0.45); font-weight:400; }
+  /* Trust banner */
+  .trust{border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--bg-alt);padding:32px 0;}
+  .trust-label{text-align:center;font-size:11.5px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-dim);font-weight:600;margin-bottom:18px;}
+  .trust-items{display:flex;flex-wrap:wrap;justify-content:center;gap:16px 48px;color:var(--text-muted);font-weight:500;font-size:14px;}
 
-  /* SECTIONS */
-  section{ padding:88px 0; }
-  .section-head{ margin-bottom:48px; max-width:600px; }
-  .section-head .eyebrow{ color:var(--teal); }
-  .section-head h2{
-    font-family:'Fraunces', serif; font-weight:500; font-size:34px; margin:0 0 14px;
-    letter-spacing:-0.01em;
-  }
-  .section-head p{ color:var(--text-soft-dark); font-size:16px; margin:0; }
+  section{padding:80px 0;}
+  .sec-head{text-align:center;max-width:600px;margin:0 auto 56px;}
+  .sec-head h2{font-size:30px;font-weight:800;color:#fff;margin:0 0 12px;}
+  .sec-head p{color:var(--text-muted);font-size:15.5px;margin:0;}
 
-  /* SERVICES */
-  .services-grid{
-    display:grid; grid-template-columns:repeat(3, 1fr); gap:1px;
-    background:var(--line-dark); border:1px solid var(--line-dark); border-radius:12px;
-    overflow:hidden;
-  }
-  @media (max-width:860px){ .services-grid{ grid-template-columns:repeat(2,1fr); } }
-  @media (max-width:600px){ .services-grid{ grid-template-columns:1fr; } }
-  .service{
-    background:var(--paper-2); padding:28px 26px; min-height:190px;
-    display:flex; flex-direction:column;
-  }
-  .service .tag{
-    font-size:12px; color:var(--teal); margin-bottom:14px;
-  }
-  .service h3{
-    font-size:17px; font-weight:600; margin:0 0 10px; letter-spacing:-0.005em;
-  }
-  .service p{
-    font-size:14.5px; color:var(--text-soft-dark); margin:0; flex:1;
-  }
+  /* Services */
+  .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  @media (max-width:820px){.services-grid{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:560px){.services-grid{grid-template-columns:1fr;}}
+  .service{background:var(--card);border:1px solid var(--border);padding:30px 28px;border-radius:14px;transition:border-color .18s;}
+  .service:hover{border-color:var(--border-hover);}
+  .service .icon{width:44px;height:44px;background:var(--sky-bg);color:var(--sky);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:19px;font-weight:700;margin-bottom:22px;}
+  .service h3{font-size:18px;font-weight:700;color:#fff;margin:0 0 10px;}
+  .service p{font-size:14px;color:var(--text-muted);margin:0;line-height:1.6;}
 
-  /* ABOUT / STATS */
-  .about{ background:var(--ink); color:var(--paper); }
-  .about .section-head p{ color:var(--text-soft); }
-  .about .section-head .eyebrow{ color:var(--teal); }
-  .stats-row{
-    display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
-    background:rgba(247,245,239,0.12); border:1px solid rgba(247,245,239,0.12);
-    border-radius:12px; overflow:hidden; margin-bottom:44px;
-  }
-  @media (max-width:700px){ .stats-row{ grid-template-columns:repeat(2,1fr); } }
-  .stat{ background:var(--ink); padding:26px 22px; }
-  .stat .num{
-    font-family:'Fraunces', serif; font-size:32px; font-weight:500; color:var(--amber);
-  }
-  .stat .label{ font-size:13px; color:var(--text-soft); margin-top:4px; }
-  .platform-list{
-    display:flex; flex-wrap:wrap; gap:10px;
-  }
-  .pill{
-    font-size:13px; padding:7px 14px; border-radius:99px;
-    border:1px solid rgba(247,245,239,0.18); color:var(--text-soft);
-  }
+  /* About */
+  .about-section{background:var(--bg-alt);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;}
+  @media (max-width:800px){.about-grid{grid-template-columns:1fr;}}
+  .about-eyebrow{color:var(--sky);font-size:13.5px;font-weight:700;display:block;margin-bottom:14px;}
+  .about-grid h2{font-size:28px;font-weight:800;color:#fff;margin:0 0 18px;}
+  .about-text p{color:var(--text-muted);font-size:15.5px;margin:0 0 20px;line-height:1.7;}
+  .about-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px;}
+  .about-list li{display:flex;align-items:flex-start;gap:10px;color:var(--text-muted);font-size:14.5px;}
+  .about-list li::before{content:"✓";color:var(--sky);font-weight:700;flex-shrink:0;}
 
-  /* CONTACT */
-  .contact-grid{
-    display:grid; grid-template-columns:0.85fr 1.15fr; gap:56px;
-  }
-  @media (max-width:860px){ .contact-grid{ grid-template-columns:1fr; gap:36px; } }
-  .contact-info p{ color:var(--text-soft-dark); font-size:15px; }
-  .contact-info .item{
-    display:flex; gap:12px; align-items:flex-start; margin-top:18px; font-size:14.5px;
-  }
-  .contact-info .item .k{ color:var(--text-soft-dark); min-width:70px; font-size:13px; }
-  form{
-    background:var(--paper-2); border:1px solid var(--line-dark); border-radius:12px;
-    padding:32px;
-  }
-  .field{ margin-bottom:18px; }
-  .field label{
-    display:block; font-size:13px; color:var(--text-soft-dark); margin-bottom:7px;
-  }
+  .matrix-card{background:var(--card-solid);border:1px solid var(--border);border-radius:16px;padding:32px;}
+  .matrix-card h3{font-size:19px;font-weight:700;color:#fff;margin:0 0 22px;}
+  .matrix-item{margin-bottom:18px;}
+  .matrix-item:last-child{margin-bottom:0;}
+  .matrix-item .k{display:block;font-size:12.5px;color:var(--text-dim);margin-bottom:5px;}
+  .matrix-item .v{font-size:13.5px;color:var(--text);font-family:'SFMono-Regular',Consolas,monospace;}
+
+  /* Case studies */
+  .case{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--sky);border-radius:12px;padding:30px 32px;margin-bottom:18px;}
+  .case-sector{display:inline-block;font-size:11.5px;font-weight:700;color:var(--sky);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:12px;}
+  .case h3{font-size:18px;font-weight:700;color:#fff;margin:0 0 14px;}
+  .case ul{margin:0;padding-left:18px;}
+  .case li{font-size:14.5px;color:var(--text-muted);margin-bottom:8px;line-height:1.6;}
+  .case-note{font-size:12.5px;color:var(--text-dim);font-style:italic;text-align:center;margin-top:8px;}
+
+  /* Contact */
+  .contact-wrap{max-width:660px;margin:0 auto;text-align:center;}
+  .contact-wrap p{color:var(--text-muted);font-size:15.5px;margin:0 0 32px;}
+  .email-row{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:32px;}
+  .email-display{font-family:'SFMono-Regular',Consolas,monospace;font-size:14.5px;background:var(--card-solid);border:1px solid var(--border);color:var(--text);padding:11px 18px;border-radius:8px;}
+  .copy-btn{background:transparent;border:1.5px solid var(--border);color:var(--text-muted);border-radius:8px;padding:11px 16px;font-size:13px;cursor:pointer;font-family:inherit;transition:border-color .15s,color .15s;}
+  .copy-btn:hover{border-color:var(--sky);color:var(--sky);}
+
+  form{background:var(--card-solid);border:1px solid var(--border);border-radius:16px;padding:32px;text-align:left;}
+  .row-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  @media (max-width:480px){.row-2{grid-template-columns:1fr;}}
+  .field{margin-bottom:18px;}
+  .field label{display:block;font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;color:var(--text-muted);margin-bottom:8px;}
   .field input, .field select, .field textarea{
-    width:100%; padding:11px 12px; border-radius:7px; border:1px solid var(--line-dark);
-    font-family:inherit; font-size:14.5px; background:var(--paper); color:var(--ink);
+    width:100%;padding:11px 14px;border-radius:8px;border:1px solid var(--border);
+    font-family:inherit;font-size:14.5px;background:var(--bg-alt);color:var(--text);
   }
-  .field input:focus, .field select:focus, .field textarea:focus{
-    outline:none; border-color:var(--teal); box-shadow:0 0 0 3px var(--teal-light);
-  }
-  .field textarea{ resize:vertical; min-height:100px; }
-  .row-2{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
-  @media (max-width:480px){ .row-2{ grid-template-columns:1fr; } }
-  .submit-btn{
-    width:100%; padding:13px; border-radius:7px; border:none; background:var(--ink);
-    color:var(--paper); font-size:14.5px; font-weight:500; cursor:pointer;
-    font-family:inherit; transition:opacity .12s;
-  }
-  .submit-btn:hover{ opacity:0.9; }
-  .form-note{ font-size:12.5px; color:var(--text-soft-dark); margin-top:12px; text-align:center; }
-  .success-msg{
-    display:none; background:var(--teal-light); border:1px solid var(--teal);
-    color:#0F4B42; padding:14px 16px; border-radius:8px; font-size:14px; margin-bottom:16px;
-  }
-  .success-msg.show{ display:block; }
+  .field input::placeholder, .field textarea::placeholder{color:var(--text-dim);}
+  .field input:focus, .field select:focus, .field textarea:focus{outline:none;border-color:var(--sky);}
+  .field select option{background:var(--bg-alt);}
+  .field textarea{resize:vertical;min-height:100px;}
+  .submit-btn{width:100%;padding:14px;border-radius:8px;border:none;background:var(--sky);color:#0f172a;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;}
+  .submit-btn:hover{background:var(--sky-dark);}
+  .form-note{font-size:12px;color:var(--text-dim);margin-top:12px;text-align:center;}
 
-  footer{
-    border-top:1px solid var(--line-dark); padding:32px 0; font-size:13px;
-    color:var(--text-soft-dark);
-    display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;
-  }
+  footer{border-top:1px solid var(--border);padding:28px 0;text-align:center;font-size:13px;color:var(--text-dim);}
 </style>
 </head>
 <body>
 
 <header>
-  <nav class="wrap">
-    <div class="brand"><span class="brand-mark"></span> Zahid&nbsp;— Database Engineering</div>
-    <div class="navlinks">
+  <div class="wrap">
+    <div class="brand">Query IT <span class="accent">Services</span></div>
+    <nav>
       <a href="#services">Services</a>
       <a href="#about">About</a>
+      <a href="#case-studies">Case Studies</a>
       <a href="#contact">Contact</a>
-    </div>
-  </nav>
+      <a href="#contact" class="nav-cta">Get in Touch</a>
+    </nav>
+  </div>
 </header>
 
-<section class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <div class="eyebrow mono"><span class="dot"></span>-- 20+ years in production databases</div>
-      <h1>Databases that <em>don't</em> go down.</h1>
-      <p class="lede">Senior DBA and database engineering support for Oracle, SQL Server, PostgreSQL and cloud platforms — high availability, migrations, performance tuning, and disaster recovery, done right the first time.</p>
-      <div class="cta-row">
-        <a href="#contact" class="btn btn-primary">Start a conversation</a>
-        <a href="#services" class="btn btn-ghost">See services</a>
-      </div>
+<div class="hero wrap">
+  <div class="hero-left">
+    <div class="kicker">Available for Remote Contract — Canada &amp; US</div>
+    <h1>20+ Years Keeping Production Databases <span class="accent">Running.</span></h1>
+    <p class="lede">Senior Database Administrator across <strong>Oracle, SQL Server, and PostgreSQL</strong> — high availability, disaster recovery, and cloud migrations for banking, government, healthcare and energy clients.</p>
+    <div class="cta-row">
+      <a href="#contact" class="btn btn-primary">Get in Touch</a>
+      <a href="#case-studies" class="btn btn-ghost">View Case Studies</a>
     </div>
-    <div class="terminal">
-      <div class="terminal-bar"><span></span><span></span><span></span></div>
-      <div class="terminal-body mono">
-        <div><span class="l">-- checking replication health</span></div>
-        <div id="typed-line" style="margin-top:8px;"></div>
-        <div class="terminal-result" id="term-result">
-          <table>
-            <tr><th>database</th><th>role</th><th>lag</th><th>status</th></tr>
-            <tr><td>primary-01</td><td>primary</td><td>0s</td><td class="ok">healthy</td></tr>
-            <tr><td>standby-02</td><td>standby</td><td>0.4s</td><td class="ok">healthy</td></tr>
-            <tr><td>standby-03</td><td>standby</td><td>0.6s</td><td class="ok">healthy</td></tr>
-          </table>
-        </div>
-      </div>
+    <div class="creds">
+      <span class="cred"><span class="ck">✓</span> Oracle Certified Professional (OCP)</span>
+      <span class="cred"><span class="ck">✓</span> Microsoft Certified: SQL Server DBA</span>
     </div>
   </div>
-</section>
+  <div class="hero-right">
+    <div class="dash-card">
+      <div class="dash-head">
+        <span class="lbl mono">Standby Database Status</span>
+        <span class="status"><span class="dot-pulse"></span>Monitored</span>
+      </div>
+      <div class="dash-row mono"><span>Primary → Standby Lag</span><span class="v-em">Synchronized</span></div>
+      <div class="dash-row mono"><span>Backup Verification</span><span class="v-sky">Passed</span></div>
+      <div class="dash-row mono"><span>Failover Readiness</span><span class="v-sky">Ready</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="trust">
+  <div class="wrap">
+    <div class="trust-label">Experience Across Canada's Most Regulated Sectors</div>
+    <div class="trust-items">
+      <span>Federal Government</span>
+      <span>Tier-1 Banking</span>
+      <span>Healthcare &amp; Insurance</span>
+      <span>Energy Grid Operations</span>
+    </div>
+  </div>
+</div>
 
 <section id="services">
   <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow mono"><span class="dot" style="background:var(--teal)"></span>services</div>
-      <h2>Coverage across the stack</h2>
-      <p>From on-call troubleshooting to full platform migrations — engagements are scoped to what your team actually needs.</p>
+    <div class="sec-head">
+      <h2>Core Services</h2>
+      <p>Scoped engagements or ongoing coverage, matched to what your database environment actually needs.</p>
     </div>
     <div class="services-grid">
-      <div class="service">
-        <div class="tag mono">-- oracle</div>
-        <h3>Oracle & Exadata / ExaCC</h3>
-        <p>Installation, patching, RAC, GoldenGate replication, and performance tuning across on-prem, ODA, ExaCC and OCI.</p>
+      <div class="service"><div class="icon">◆</div><h3>Oracle &amp; Exadata</h3><p>RAC, GoldenGate replication, and patching across on-premises, ODA, ExaCC and OCI — Oracle 9i through 23ai.</p></div>
+      <div class="service"><div class="icon">◆</div><h3>SQL Server &amp; Azure SQL</h3><p>Always On availability groups, Azure SQL / Managed Instance administration, and backup strategy.</p></div>
+      <div class="service"><div class="icon">◆</div><h3>PostgreSQL &amp; MySQL</h3><p>Architecture review, replication setup, and performance diagnostics for open-source platforms.</p></div>
+      <div class="service"><div class="icon">◆</div><h3>High Availability &amp; DR</h3><p>RMAN, TDE, standby databases, and disaster recovery design built to real RTO/RPO targets.</p></div>
+      <div class="service"><div class="icon">◆</div><h3>Cloud Migrations</h3><p>Multi-database, on-premises-to-cloud moves across AWS RDS, Azure, and OCI with minimal cutover risk.</p></div>
+      <div class="service"><div class="icon">◆</div><h3>Performance Tuning</h3><p>Root-cause diagnosis for slow queries, contention, and capacity issues — not just a query hint.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="about-section" id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div>
+        <span class="about-eyebrow">Senior Database Administrator</span>
+        <h2>Meet Zahid Hussain</h2>
+        <div class="about-text">
+          <p>Over 20 years running production Oracle and SQL Server environments across banking, federal government, healthcare and energy — sectors where downtime carries real regulatory weight. Engagements are delivered through Query IT Services, remote across Canada and the US.</p>
+        </div>
+        <ul class="about-list">
+          <li>Direct senior-level engagement — no junior hand-offs</li>
+          <li>Led migrations covering 50+ databases in a single engagement</li>
+          <li>Comfortable across Oracle, Microsoft, and open-source platforms</li>
+        </ul>
       </div>
-      <div class="service">
-        <div class="tag mono">-- sql_server</div>
-        <h3>SQL Server & Azure SQL</h3>
-        <p>Always On availability groups, Azure SQL and Managed Instance, backup strategy, and query tuning.</p>
-      </div>
-      <div class="service">
-        <div class="tag mono">-- open_source</div>
-        <h3>PostgreSQL & MySQL</h3>
-        <p>Architecture reviews, replication setup, and performance diagnostics for open-source database platforms.</p>
-      </div>
-      <div class="service">
-        <div class="tag mono">-- ha_dr</div>
-        <h3>High availability & DR</h3>
-        <p>RMAN, TDE, standby configuration and disaster recovery design built to meet real recovery-time targets.</p>
-      </div>
-      <div class="service">
-        <div class="tag mono">-- migration</div>
-        <h3>Cloud & platform migrations</h3>
-        <p>On-premises to cloud moves across AWS RDS, Azure and OCI, including large-scale, multi-database cutovers.</p>
-      </div>
-      <div class="service">
-        <div class="tag mono">-- tuning</div>
-        <h3>Performance tuning</h3>
-        <p>Root-cause diagnosis for slow queries, contention and capacity issues — with a plan, not just a patch.</p>
+      <div class="matrix-card">
+        <h3>Technical Proficiency</h3>
+        <div class="matrix-item"><span class="k">Databases</span><span class="v">Oracle 9i–23ai, SQL Server, PostgreSQL, MySQL, MongoDB, Sybase ASE</span></div>
+        <div class="matrix-item"><span class="k">High Availability</span><span class="v">RAC, Data Guard, Always On AG, RMAN, TDE</span></div>
+        <div class="matrix-item"><span class="k">Replication &amp; Monitoring</span><span class="v">GoldenGate, Oracle Enterprise Manager (OEM)</span></div>
+        <div class="matrix-item"><span class="k">Cloud Platforms</span><span class="v">OCI, Azure SQL / Managed Instance, AWS RDS</span></div>
+        <div class="matrix-item"><span class="k">On-Prem &amp; Engineered Systems</span><span class="v">Exadata / ExaCC, Oracle Database Appliance (ODA)</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="about" id="about">
+<section id="case-studies">
   <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow mono"><span class="dot"></span>about</div>
-      <h2>Two decades of keeping production up</h2>
-      <p>Experience built across banking, government, healthcare and energy — environments where downtime isn't an option.</p>
+    <div class="sec-head">
+      <h2>Case Studies</h2>
+      <p>Client names withheld under standard confidentiality — scope and technology below reflect real work delivered.</p>
     </div>
-    <div class="stats-row">
-      <div class="stat"><div class="num">20+</div><div class="label">years in production DB environments</div></div>
-      <div class="stat"><div class="num">50+</div><div class="label">databases managed in a single migration</div></div>
-      <div class="stat"><div class="num">4</div><div class="label">regulated sectors: finance, gov, health, energy</div></div>
-      <div class="stat"><div class="num">3</div><div class="label">major clouds: AWS, Azure, OCI</div></div>
+    <div class="case">
+      <span class="case-sector">Federal Government</span>
+      <h3>On-Premises to Private Cloud Migration</h3>
+      <ul>
+        <li>Led migration of 50+ production databases to a private cloud platform, as team lead.</li>
+        <li>Implemented Oracle GoldenGate for near-zero-downtime replication during cutover.</li>
+      </ul>
     </div>
-    <div class="platform-list">
-      <span class="pill">Oracle 9i – 23ai</span>
-      <span class="pill">SQL Server</span>
-      <span class="pill">PostgreSQL</span>
-      <span class="pill">MySQL</span>
-      <span class="pill">MongoDB</span>
-      <span class="pill">Sybase ASE</span>
-      <span class="pill">Exadata / ExaCC</span>
-      <span class="pill">ODA</span>
-      <span class="pill">Azure SQL / MI</span>
-      <span class="pill">OCI</span>
-      <span class="pill">AWS RDS</span>
+    <div class="case">
+      <span class="case-sector">Tier-1 Banking</span>
+      <h3>High-Availability Oracle &amp; SQL Server Platform</h3>
+      <ul>
+        <li>Designed HA architecture with RMAN backup strategy and TDE encryption for compliance.</li>
+        <li>Configured standby databases and DR procedures, plus ongoing performance tuning.</li>
+      </ul>
+    </div>
+    <div class="case">
+      <span class="case-sector">Energy Grid Operations</span>
+      <h3>Database Support for Grid Operations Systems</h3>
+      <ul>
+        <li>Provided DBA support for systems underpinning energy grid operations.</li>
+        <li>Supported monitoring and alerting configuration for mission-critical workloads.</li>
+      </ul>
     </div>
   </div>
 </section>
 
 <section id="contact">
-  <div class="wrap contact-grid">
-    <div class="contact-info">
-      <div class="eyebrow mono"><span class="dot" style="background:var(--teal)"></span>contact</div>
-      <h2 style="font-family:'Fraunces',serif; font-weight:500; font-size:30px; margin:0 0 14px;">Tell me about your database</h2>
-      <p>Share a bit about your environment and what's not working — replication, performance, an upcoming migration, or ongoing DBA support. A reply usually lands within one business day.</p>
-      <div class="item"><span class="k mono">email</span><span id="contact-email">your.email@example.com</span></div>
-      <div class="item"><span class="k mono">avail.</span><span>Remote, contract engagements</span></div>
+  <div class="wrap contact-wrap">
+    <div class="sec-head" style="margin-bottom:20px;">
+      <h2>Scope a Database Engagement</h2>
+      <p>Email is the fastest way to reach me — share your environment, timeline, and what's not working.</p>
     </div>
-    <div>
-      <div class="success-msg" id="success-msg">Thanks — your message is ready to send. Your email client should have opened with the details filled in.</div>
-      <form id="contact-form">
-        <div class="row-2">
-          <div class="field">
-            <label for="name">Name</label>
-            <input type="text" id="name" placeholder="Your name" required>
-          </div>
-          <div class="field">
-            <label for="email">Email</label>
-            <input type="email" id="email" placeholder="name@company.com" required>
-          </div>
-        </div>
-        <div class="field">
-          <label for="service">Service needed</label>
-          <select id="service">
-            <option>Oracle & Exadata / ExaCC</option>
-            <option>SQL Server & Azure SQL</option>
-            <option>PostgreSQL & MySQL</option>
-            <option>High availability & DR</option>
-            <option>Cloud & platform migration</option>
-            <option>Performance tuning</option>
-            <option>Not sure yet</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="message">Message</label>
-          <textarea id="message" placeholder="Describe your environment and what you need help with"></textarea>
-        </div>
-        <button type="submit" class="submit-btn">Send message</button>
-        <p class="form-note">Opens your email client with this message pre-filled.</p>
-      </form>
+    <div class="email-row">
+      <span class="email-display" id="email-text">zahidhussaindba@gmail.com</span>
+      <button class="copy-btn" id="copy-btn">Copy Email</button>
     </div>
+    <form id="contact-form" action="https://formsubmit.co/zahidhussaindba@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="New inquiry — Query IT Services website">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="true">
+      <div class="row-2">
+        <div class="field"><label for="name">Name</label><input type="text" id="name" name="Name" placeholder="Your name" required></div>
+        <div class="field"><label for="email">Work Email</label><input type="email" id="email" name="Email" placeholder="you@company.com" required></div>
+      </div>
+      <div class="field">
+        <label for="service">Service Needed</label>
+        <select id="service" name="Service Needed">
+          <option>Oracle & Exadata support</option>
+          <option>SQL Server / Azure SQL</option>
+          <option>PostgreSQL / MySQL</option>
+          <option>High availability & DR</option>
+          <option>Cloud migration</option>
+          <option>Performance tuning</option>
+          <option>Not sure yet</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="message">Database Environment / Requirements</label>
+        <textarea id="message" name="Message" placeholder="Tell me about your database setup — platform, issue, timeline..."></textarea>
+      </div>
+      <button type="submit" class="submit-btn">Send Message</button>
+      <p class="form-note">Delivered straight to my inbox — no email app required.</p>
+    </form>
   </div>
 </section>
 
-<footer class="wrap">
-  <div>© <span id="year"></span> Database Engineering Services</div>
-  <div>Remote, contract-based engagements</div>
+<footer>
+  <div class="wrap">Query IT Services · Zahid Hussain — Senior Database Administrator · © <span id="year"></span></div>
 </footer>
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // typed line animation
-  const line = "SELECT * FROM replication_status;";
-  const el = document.getElementById('typed-line');
-  const resultEl = document.getElementById('term-result');
-  let i = 0;
-  function type(){
-    if(i <= line.length){
-      el.innerHTML = '<span class="kw">SELECT</span> * <span class="kw">FROM</span> <span class="str">replication_status</span>;'.slice(0, 0);
-      el.textContent = line.slice(0, i);
-      i++;
-      setTimeout(type, 38);
-    } else {
-      el.innerHTML = '<span class="kw">SELECT</span> * <span class="kw">FROM</span> <span class="str">replication_status</span>;';
-      resultEl.classList.add('show');
-    }
-  }
-  setTimeout(type, 500);
-
-  // contact form -> mailto
-  const CONTACT_EMAIL = "your.email@example.com";
-  document.getElementById('contact-form').addEventListener('submit', function(e){
-    e.preventDefault();
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const service = document.getElementById('service').value;
-    const message = document.getElementById('message').value;
-    const subject = encodeURIComponent('Database services inquiry — ' + service);
-    const body = encodeURIComponent(
-      'Name: ' + name + '\n' +
-      'Email: ' + email + '\n' +
-      'Service: ' + service + '\n\n' +
-      message
-    );
-    window.location.href = 'mailto:' + CONTACT_EMAIL + '?subject=' + subject + '&body=' + body;
-    document.getElementById('success-msg').classList.add('show');
+  document.getElementById('copy-btn').addEventListener('click', () => {
+    navigator.clipboard.writeText('zahidhussaindba@gmail.com').then(() => {
+      const btn = document.getElementById('copy-btn');
+      const original = btn.textContent;
+      btn.textContent = 'Copied';
+      setTimeout(() => { btn.textContent = original; }, 1600);
+    });
   });
 </script>
 
